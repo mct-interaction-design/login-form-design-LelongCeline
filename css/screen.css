@@ -3,8 +3,120 @@
 /*---------------------------------------*/
 
 :root {
-  /* CSS variables here */
+  /* Light modus */
+  /* Colors */
+  --blue-10: hsl(216 100% 97%);
+  --blue-100: hsl(216 100% 10%);
+  --blue-20: hsl(216 100% 90%);
+  --blue-30: hsl(216 100% 80%);
+  --blue-40: hsl(216 100% 70%);
+  --blue-50: hsl(216 100% 60%);
+  --blue-50-alpha-30: hsl(216 100% 60% / 0.3);
+  --blue-50-alpha-50: hsl(216 100% 60% / 0.5);
+  --blue-60: hsl(216 100% 50%);
+  --blue-70: hsl(216 100% 40%);
+  --blue-80: hsl(216 100% 30%);
+  --blue-90: hsl(216 100% 20%);
+  --gray-10: hsl(216 24% 96%);
+  --gray-100: hsl(213 13% 13%);
+  --gray-20: hsl(216 11% 90%);
+  --gray-30: hsl(215 5% 77%);
+  --gray-40: hsl(215 4% 68%);
+  --gray-50: hsl(214 3% 59%);
+  --gray-60: hsl(214 3% 50%);
+  --gray-70: hsl(214 4% 41%);
+  --gray-80: hsl(214 5% 32%);
+  --gray-90: hsl(214 8% 22%);
+  --red-50: hsl(350 88% 57%);
+  --red-50-a-30: hsl(350 88% 57% / 0.3);
+  --red-50-a-50: hsl(350 88% 57% / 0.5);
+  
+  /* Theme */
+  --background-brand: var(--blue-50);
+  --background-brand-dark: var(--blue-60);
+  --background-brand-light: var(--blue-40);
+  --background-layer-1: var(--gray-10);
+  --background-layer-2: hsl(0 0% 100%);
+  --background-layer-3: hsl(0 0% 100%);
+  --background-layer-4: var(--gray-20);
+  --border-color-brand: var(--blue-50);
+  --border-color-error: var(--red-50);
+  --border-color-hard: var(--gray-30);
+  --border-color-normal: var(--gray-20);
+  --border-color-soft: var(--gray-10);
+  --color-brand: var(--blue-50);
+  --color-brand-dark: var(--blue-60);
+  --color-brand-light: var(--blue-40);
+  --color-error: var(--red-50);
+  --color-light: var(--gray-50);
+  --color-normal: var(--gray-100);
+  --color-soft: var(--gray-70);
+  --logo-circle-1: var(--gray-100);
+  --logo-circle-2: var(--background-brand);
+  --logo-text: var(--gray-100);
+  --outline-color-default: var(--blue-50-alpha-30);
+  --outline-color-error: var(--red-50-a-30);
+  
+  /* Radii */
+  --radius-s: 0.1875rem;
+  --radius: 0.375rem;
+  --radius-l: 0.75rem;
+  
+  /* whitespace */
+  --space-1: 0.125rem;
+  --space-2: 0.25rem;
+  --baseline: 0.5rem;
+  --space-3: var(--baseline);
+  --space-4: 0.75rem;
+  --space-5: 1rem;
+  --space-6: 1.5rem;
+  --space-7: 2rem;
+  --space-8: 2.5rem;
+  --space-9: 3rem;
+  --space-10: 4rem;
+  
+  /* Type */
+  --type-scale-1: 0.75rem;
+  --type-scale-2: 0.875rem;
+  --type-scale-3: 1rem;
+  --type-scale-4: 1.125rem;
+  --type-scale-5: 1.25rem;
+  --type-scale-6: 1.5rem;
+  --type-scale-7: 1.75rem;
+  --type-scale-8: 2rem;
+  --type-scale-9: 2.25rem;
+  --type-scale-10: 2.625rem;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Dark modus */
+    --background-brand: var(--blue-50);
+    --background-brand-dark: var(--blue-60);
+    --background-brand-light: var(--blue-40);
+    --background-layer-1: var(--gray-100);
+    --background-layer-2: var(--gray-90);
+    --background-layer-3: var(--gray-100);
+    --background-layer-4: var(--gray-100);
+    --border-color-brand: var(--blue-50);
+    --border-color-error: var(--red-50);
+    --border-color-hard: var(--gray-100);
+    --border-color-normal: var(--gray-100);
+    --border-color-soft: var(--gray-80);
+    --color-brand: var(--blue-50);
+    --color-brand-dark: var(--blue-60);
+    --color-brand-light: var(--blue-40);
+    --color-error: var(--red-50);
+    --color-light: var(--gray-50);
+    --color-normal: var(--gray-10);
+    --color-soft: var(--gray-30);
+    --logo-circle-1: hsl(0 0 100%);
+    --logo-circle-2: hsl(0 0 100%);
+    --logo-text: hsl(0 0 100%);
+    --outline-color-default: var(--blue-50-alpha-50);
+    --outline-color-error: var(--red-50-a-50);
+  }
+} 
 
 /*---------------------------------------/*
  # GENERIC
@@ -38,11 +150,13 @@ img {
 html {
   font-size: 100%;
   line-height: 1.5;
-  font-family: "Helvetica Neue", Helvetica, arial, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
   /* anti aliasing */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--background-layer-1);
+  color: var(--color-normal);
 }
 
 /*
@@ -74,11 +188,268 @@ html {
 /*------------------------------------*\
   #COMPONENTS
 \*------------------------------------*/
+
 /*
-    Component: Component name
-    ---
-    Component description
+    Component: Login
 */
+.c-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-6);
+  gap: var(--space-9);
+}
+
+/*
+    Component: Logo
+*/
+
+.c-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--space-6);
+
+  --logo__path--text-fill: #1D2126;
+  --logo__path--circle-1-fill: #3385FF;
+  --logo__path--circle-2-fill: #1D2126;
+}
+
+.c-logo__image {
+  height: 1.5rem;
+  width: auto;
+}
+
+.c-logo__symbol {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.c-logo__path--text {
+  fill: var(--logo__path--text-fill, var(--color-gray-100));
+}
+
+.c-logo__path--circle-1 {
+  fill: var(--logo__path--circle-1-fill, var(--color-brand));
+}
+
+.c-logo__path--circle-2 {
+  fill: var(--logo__path--circle-2-fill, var(--color-gray-100));
+}
+
+@media (prefers-color-scheme: dark) {
+  .c-logo {
+    --logo__path--text-fill: White;
+    --logo__path--circle-1-fill: var(--logo__path--text-fill);
+    --logo__path--circle-2-fill: var(--logo__path--text-fill);
+  }
+}
+
+/*
+    Component: Form
+    ---
+    Login form container
+*/
+.c-form {
+  width: 100%;
+  max-width: 27rem;
+  background: var(--background-layer-2);
+  border-radius: var(--radius);
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.c-form__top {
+  padding: var(--space-9);
+}
+
+.c-form__title {
+  font-size: var(--type-scale-4);
+  font-weight: 500;
+  line-height: 1.33;
+  text-align: center;
+  color: var(--color-normal);
+  margin: 0 0 var(--space-9) 0;
+}
+
+.c-form__inputs {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.c-form__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  margin-top: var(--space-6);
+}
+
+.c-form__forgot {
+  color: var(--color-light);
+  font-size: var(--type-scale-2);
+  text-align: center;
+  text-decoration: underline;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.c-form__forgot:hover {
+  color: var(--color-soft);
+}
+
+.c-form__bottom {
+  border-top: 1px solid var(--border-color-normal);
+  padding: var(--space-6) var(--space-9);
+  text-align: center;
+}
+
+.c-form__signup {
+  color: var(--color-light);
+  font-size: var(--type-scale-2);
+  margin: 0;
+}
+
+.c-form__signup-link {
+  color: var(--color-brand);
+  text-decoration: none;
+}
+
+.c-form__signup-link:hover {
+  text-decoration: underline;
+}
+
+/*
+    Component: Input
+*/
+.c-input {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.c-input__label {
+  font-size: var(--type-scale-2);
+  color: var(--color-soft);
+  font-weight: 400;
+  line-height: 1.14;
+}
+
+.c-input__wrapper {
+  position: relative;
+  background: var(--background-layer-3);
+  border: 1px solid var(--border-color-normal);
+  border-radius: var(--radius-s);
+  transition: box-shadow 0.2s ease;
+}
+
+.c-input__wrapper:focus-within {
+  box-shadow: 0px 0px 0px 2px var(--outline-color-default);
+}
+
+.c-input__field {
+  width: 100%;
+  padding: var(--space-5);
+  padding-right: var(--space-9);
+  border: none;
+  background: transparent;
+  font-size: var(--type-scale-2);
+  line-height: 1.14;
+  color: var(--color-normal);
+  outline: none;
+}
+
+.c-input__field::placeholder {
+  color: var(--color-light);
+}
+
+.c-input__toggle {
+  position: absolute;
+  right: var(--space-5);
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--color-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.c-input__toggle:hover {
+  color: var(--color-normal);
+}
+
+.c-input__icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/*
+    Component: Button
+*/
+.c-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-6);
+  border: none;
+  border-radius: var(--radius-s);
+  font-size: var(--type-scale-3);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  outline: none;
+  font-family: inherit;
+}
+
+.c-button--primary {
+  background: var(--background-brand);
+  color: var(--background-layer-2);
+}
+
+.c-button--primary:hover {
+  background: var(--background-brand-dark);
+}
+
+.c-button--primary:focus {
+  box-shadow: 0px 0px 0px 2px var(--outline-color-default);
+}
+
+/*
+    Component: Checkbox
+*/
+
+.c-checkbox {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.c-checkbox__input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-brand);
+  cursor: pointer;
+}
+
+.c-checkbox__label {
+  font-size: var(--type-scale-2);
+  color: var(--color-soft);
+  cursor: pointer;
+  line-height: 1.14;
+}
 
 /*---------------------------------------/*
  # UTILITIES
