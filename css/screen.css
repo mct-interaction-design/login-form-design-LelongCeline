@@ -4,7 +4,6 @@
 
 :root {
   /* Light modus */
-  /* Colors */
   --blue-10: hsl(216 100% 97%);
   --blue-100: hsl(216 100% 10%);
   --blue-20: hsl(216 100% 90%);
@@ -143,25 +142,18 @@ img {
 
 /*
     Elements: Page
-    ---
-    Default markup for page level elements
 */
-
 html {
   font-size: 100%;
   line-height: 1.5;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   scroll-behavior: smooth;
-  /* anti aliasing */
+
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--background-layer-1);
   color: var(--color-normal);
 }
-
-/*
-    Customize the background color and color to match your design.
-*/
 
 ::selection {
   background: hotpink;
@@ -171,12 +163,6 @@ html {
 /*---------------------------------------/*
  # OBJECTS
 /*---------------------------------------*/
-
-/*
-    Objects: Container
-    ---
-    Creates a horizontal container that sets de global max-width
-*/
 
 .o-container {
   margin-left: auto;
@@ -199,13 +185,20 @@ html {
   align-items: center;
   justify-content: center;
   padding: var(--space-6);
+}
+
+.c-login .o-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--space-9);
+  width: 100%;
+  max-width: 27rem;
 }
 
 /*
     Component: Logo
 */
-
 .c-logo {
   display: flex;
   align-items: center;
@@ -251,8 +244,6 @@ html {
 
 /*
     Component: Form
-    ---
-    Login form container
 */
 .c-form {
   width: 100%;
@@ -430,7 +421,6 @@ html {
 /*
     Component: Checkbox
 */
-
 .c-checkbox {
   display: flex;
   align-items: center;
@@ -451,6 +441,201 @@ html {
   line-height: 1.14;
 }
 
+/*
+    Component: Form Sections
+*/
+.c-form__section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.c-form__section-title {
+  font-size: var(--type-scale-4);
+  font-weight: 500;
+  line-height: 1.33;
+  color: var(--color-normal);
+  margin: 0;
+}
+
+.c-form__checkboxes,
+.c-form__radios,
+.c-form__toggles {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.c-form__radio-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.c-form__divider {
+  border: none;
+  border-top: 1px solid var(--border-color-normal);
+  margin: 0;
+}
+
+/*
+    Component: Select
+*/
+.c-input select {
+  appearance: none;
+  background-image: none;
+}
+
+.c-input select + .c-input__toggle {
+  pointer-events: none;
+}
+
+/*
+    Component: Radio Button
+*/
+.c-radio {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.c-radio__input {
+  width: 1rem;
+  height: 1rem;
+  accent-color: var(--color-brand);
+  cursor: pointer;
+}
+
+.c-radio__label {
+  font-size: var(--type-scale-2);
+  color: var(--color-soft);
+  cursor: pointer;
+  line-height: 1.14;
+}
+
+.c-radio__input--focused {
+  outline: 2px solid var(--outline-color-default);
+  outline-offset: 2px;
+}
+
+/*
+    Component: Toggle Switch
+*/
+.c-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.c-toggle__label {
+  font-size: var(--type-scale-2);
+  color: var(--color-soft);
+  line-height: 1.14;
+}
+
+.c-toggle__switch {
+  position: relative;
+  width: 2.5rem;
+  height: 1.5rem;
+}
+
+.c-toggle__input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.c-toggle__slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color-normal);
+  transition: 0.2s;
+  border-radius: 1.5rem;
+  border: 1px solid var(--border-color-normal);
+}
+
+.c-toggle__slider:before {
+  position: absolute;
+  content: "";
+  height: 1rem;
+  width: 1rem;
+  left: 0.125rem;
+  bottom: 0.125rem;
+  background-color: var(--background-layer-2);
+  transition: 0.2s;
+  border-radius: 50%;
+}
+
+.c-toggle__input:checked + .c-toggle__slider {
+  background-color: var(--background-brand);
+  border-color: var(--border-color-brand);
+}
+
+.c-toggle__input:checked + .c-toggle__slider:before {
+  transform: translateX(1rem);
+}
+
+.c-toggle__input--focused + .c-toggle__slider {
+  box-shadow: 0px 0px 0px 2px var(--outline-color-default);
+}
+
+/*
+    Component: Radio Pills
+*/
+.c-radio-pill {
+  position: relative;
+  display: inline-block;
+}
+
+.c-radio-pill__input {
+  opacity: 0;
+  position: absolute;
+  width: 0;
+  height: 0;
+}
+
+.c-radio-pill__label {
+  display: inline-block;
+  padding: var(--space-3) var(--space-4);
+  background: var(--background-layer-2);
+  border: 1px solid var(--border-color-normal);
+  border-radius: var(--radius-s);
+  font-size: var(--type-scale-2);
+  font-weight: 600;
+  color: var(--color-soft);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1.14;
+}
+
+.c-radio-pill__input:checked + .c-radio-pill__label {
+  background: var(--background-brand);
+  border-color: var(--border-color-brand);
+  color: var(--background-layer-2);
+}
+
+.c-radio-pill__input--focused + .c-radio-pill__label {
+  border-color: var(--border-color-brand);
+  box-shadow: 0px 0px 0px 2px var(--outline-color-default);
+}
+
+.c-radio-pill__label:hover {
+  border-color: var(--border-color-brand);
+}
+
+/*
+    Component: Checkbox (focused state)
+*/
+.c-checkbox__input--focused {
+  outline: 2px solid var(--outline-color-default);
+  outline-offset: 2px;
+}
 /*---------------------------------------/*
  # UTILITIES
 /*---------------------------------------*/
