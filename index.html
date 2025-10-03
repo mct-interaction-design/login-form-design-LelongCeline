@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+    <main class="login-container">
+        <!-- Logo -->
+        <div class="logo">
+            <svg width="121" height="24" viewBox="0 0 121 24" fill="none">
+                <circle cx="12" cy="12" r="12" fill="#1d2126"/>
+                <circle cx="32" cy="12" r="8" fill="#3385ff"/>
+                <text x="50" y="16" font-family="Inter" font-size="14" font-weight="500" fill="#1d2126">Company</text>
+            </svg>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-container">
+            <div class="form-top">
+                <h1 class="form-title">Sign in to your account</h1>
+
+                <form class="form-inputs">
+                    <!-- Email Input -->
+                    <div class="input-group">
+                        <label for="email" class="input-label">Username or email address</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="email" 
+                                id="email" 
+                                name="email" 
+                                class="input-field" 
+                                placeholder="e.g. sir.martin.loth@howest.be"
+                            >
+                        </div>
+                    </div>
+
+                    <!-- Password Input -->
+                    <div class="input-group">
+                        <label for="password" class="input-label">Password</label>
+                        <div class="input-wrapper">
+                            <input 
+                                type="password" 
+                                id="password" 
+                                name="password" 
+                                class="input-field"
+                            >
+                            <button type="button" class="password-toggle" aria-label="Show password">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                                    <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Checkbox -->
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="remember" name="remember" class="checkbox-input">
+                        <label for="remember" class="checkbox-label">Remember me</label>
+                    </div>
+
+                    <!-- Submit Button and Forgot Password -->
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Sign in
+                        </button>
+                        <a href="#" class="forgot-password">Forgot password?</a>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Form Bottom -->
+            <div class="form-bottom">
+                <p class="signup-text">
+                    Don't have an account? <a href="#" class="signup-link">Create an account</a>
+                </p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
